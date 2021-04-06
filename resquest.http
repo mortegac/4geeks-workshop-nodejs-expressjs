@@ -1,0 +1,33 @@
+
+
+
+GET http://0.0.0.0:1338/users
+
+
+### 
+
+POST http://0.0.0.0:1338/users
+content-type: application/json
+
+{
+    "id": "3"
+}
+
+### 
+
+PUT http://0.0.0.0:1338/users
+content-type: application/json
+
+{
+    "id": "3",
+    "name": "Manu",
+    "lastname": "Ortega"
+}
+
+
+
+
+### 
+
+DELETE  http://0.0.0.0:1338/users/1
+
