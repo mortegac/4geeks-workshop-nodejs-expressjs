@@ -4,8 +4,25 @@
 GET http://0.0.0.0:1338/users
 
 
-### 
+### Error Controlado
+GET http://0.0.0.0:1338/padawan
 
+
+
+### 
+POST http://0.0.0.0:1338/users/login
+content-type: application/json
+
+{
+    "login": "juanin",
+    "password": "jan Jarri"
+}
+
+
+
+
+
+### 
 POST http://0.0.0.0:1338/users
 content-type: application/json
 

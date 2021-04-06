@@ -1,15 +1,27 @@
 const express = require('express')
 const router = express.Router()
-
-const user= [
-	{ "name": "Tulio", "lastName": "Triviño" },
-	{ "name": "Guaripolo", "lastName": "" },
-	{ "name": "Juanin", "lastName": "Jan Jarri" },
-	{ "name": "Juan Carlos", "lastName": "Bodoque" },
-	{ "name": "Estrella", "lastName": "de Lana" },
-]
+// const { , verifiedAuth } = require('../midlewares/authToken.midleware')
+const { createTokenAuth } = require('../utils');
+const user = require('../dataMock/user.json')
 
 
+
+router.post('/login', async (req, res, next)=>{
+	
+	const { username, password } = req.body;
+	
+	
+	const dataUser = {
+		user:username,
+		name:"Manu",
+		email:"mortega@4geeks.co",
+	}
+	
+	const token = createTokenAuth(dataUser)
+	
+	return res.status(200).json(token);
+
+});
 router.get('/', async (req, res) => {
     
     try {
