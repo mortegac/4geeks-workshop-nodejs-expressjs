@@ -17,8 +17,10 @@ content-type: application/json
     "login": "juanin",
     "password": "jan Jarri"
 }
+// Verificar JWT en https://jwt.io/
 
 
+GET http://0.0.0.0:1338/users
 
 
 
