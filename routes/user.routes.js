@@ -1,18 +1,18 @@
 const express = require('express')
 const router = express.Router()
-// const { , verifiedAuth } = require('../midlewares/authToken.midleware')
+const { verifiedAuth } = require('../midlewares/authToken.midleware')
 const { createTokenAuth } = require('../utils');
 const user = require('../dataMock/user.json')
 
 
 
-router.post('/login', async (req, res, next)=>{
+router.post('/token', async (req, res, next)=>{
 	
-	const { username, password } = req.body;
+	const { email, password } = req.body;
 	
 	
 	const dataUser = {
-		user:username,
+		user:email,
 		name:"Manu",
 		email:"mortega@4geeks.co",
 	}
@@ -22,7 +22,7 @@ router.post('/login', async (req, res, next)=>{
 	return res.status(200).json(token);
 
 });
-router.get('/', async (req, res) => {
+router.get('/', verifiedAuth, async (req, res) => {
     
     try {
         res.status(200).json(user);
@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
 
 
 
-router.post('/', async (req, res) => {
+router.post('/', verifiedAuth, async (req, res) => {
     
 	try {
 		const { body } = req;
@@ -45,7 +45,7 @@ router.post('/', async (req, res) => {
 	}  
 })
 
-router.put('/', async (req, res) => {
+router.put('/', verifiedAuth, async (req, res) => {
     
 	try {
 		const { body } = req;
@@ -57,7 +57,7 @@ router.put('/', async (req, res) => {
 })
 
 
-router.delete('/:id', (req, res)=>{
+router.delete('/:id', verifiedAuth, (req, res)=>{
     let { id } = req.params;
 
     res.status(200).json({idDeleted: id});

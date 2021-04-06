@@ -1,8 +1,10 @@
-
+// EXTENSION VCODE
+// https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 
 
 GET http://0.0.0.0:1338/users
-
+Content-Type: application/xml
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoianVhbmluIiwibmFtZSI6Ik1hbnUiLCJlbWFpbCI6Im1vcnRlZ2FANGdlZWtzLmNvIiwiaWF0IjoxNjE3NzE4NjY2LCJleHAiOjE2MjAzMTA2NjZ9.aYQwBSVjV6XDvGdGA05QvOFe5_8dLV3sNB0guqOohdI
 
 ### Error Controlado
 GET http://0.0.0.0:1338/padawan
@@ -10,17 +12,14 @@ GET http://0.0.0.0:1338/padawan
 
 
 ### 
-POST http://0.0.0.0:1338/users/login
+POST http://0.0.0.0:1338/users/token
 content-type: application/json
 
 {
-    "login": "juanin",
+    "email": "juanin",
     "password": "jan Jarri"
 }
 // Verificar JWT en https://jwt.io/
-
-
-GET http://0.0.0.0:1338/users
 
 
 
