@@ -18,33 +18,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.raw());
 
-// USERS
-app.get('/users', (req, res)=>{
-    res.send('GET USERS')
-})
 
-app.post('/users', (req, res)=>{
-    const { body } = req;
-    // res.send('POST USERS', req.body)
-    res.status(201).json({body: body});
-});
+app.use(require('./routes/index'))
 
 
-app.put('/users', (req, res)=>{
-    const { body } = req;
-    // res.send('POST USERS', req.body)
-    res.status(200).json({body: body});
-});
-
-app.delete('/users/:id', (req, res)=>{
-    let { id } = req.params;
-
-    res.status(200).json({idDeleted: id});
-
-})
-
-
-// ROUTER 
 
 app.listen(port, '0.0.0.0', (err) => {
     if (err) { return error(err); }
